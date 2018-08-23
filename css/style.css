@@ -1,0 +1,21 @@
+.reveal {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.reveal pre, .reveal code {
+    font-family: 'Fira Code', monospace;
+}
+
+pre.inline-code {
+    width: auto;
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 0 .5em;
+    transform: translateY(7px);
+}
+
+pre.inline-code > code {
+    padding: .2em .5em;
+    margin: 0;
+}
+
