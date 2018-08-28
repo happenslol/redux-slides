@@ -1,41 +1,41 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,800,800i" rel="stylesheet">
         <link href="https://unpkg.com/firacode/distr/fira_code.css" rel="stylesheet">
 
-		<title>reveal.js</title>
+        <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
         <link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section id="title">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section id="title">
                     <h2>The Redux Pattern</h2>
                 </section>
 
-				<section id="webapps">
+                <section id="webapps">
                     <section id="webapps-1">
                         <p>React, Angular, VueJS, ...</p>
                     </section>
@@ -52,46 +52,178 @@
                 </section>
 
                 <section id="redux">
+                    <section id="redux-1">
+                        <h2>Redux</h2>
+                        <ul>
+                            <li>Inspired by Facebook's Flux-architecture</li>
+                            <li>First released in 2015</li>
+                            <li>Current stable release is 4.0.0</li>
+                            <li>Many bindings and implementations for different frameworks</li>
+                        </ul>
+                    </section>
+
+                    <section id="redux-2">
+                        <h2>Redux</h2>
+                        <p>Model entire application state as a single Javascript object, the <b>Store</b></p>
+                        <i class="fas fa-arrow-down"></i>
+                        <p>User interface is direct representation of state</p>
+                    </section>
+
+                    <section id="redux-3">
+                        <h2>Redux</h2>
+                        example here
+                    </section>
                 </section>
 
                 <section id="mutating">
-                </section>
+                    <section id="mutating-1">
+                        <p>Who is allowed to modify state?</p>
+                        <br>
+                        <br>
+                        <p>No one!</p>
+                    </section>
 
-                <section id="async">
+                    <section id="mutating-2">
+                        <p>State changes are modeled as <b>Actions</b></p>
+
+                        <pre><code class="javascript" data-trim>
+                            {
+                                type: "ADD_TODO",
+                                payload: "Prepare my redux talk"
+                            }
+                        </code></pre>
+                    </section>
+
+                    <section id="mutating-3">
+                        <h2>The reducer</h2>
+
+                        <p>state + action = 'state</p>
+
+                        <br>
+                        <p>Reducer has to be a <b>pure</b> function!</p>
+                    </section>
+
+                    <section id="mutating-4">
+                        <h2>The reducer</h2>
+
+                        <pre><code class="javascript" data-trim>
+                            function reduce(state, action) {
+                                switch (action.type) {
+                                    case "ADD_TODO":
+                                        return {
+                                            ...state,
+                                            todos: [
+                                                ...state.todos,
+                                                action.payload
+                                            ]
+                                        }
+                                }
+
+                                return state
+                            }
+                        </code></pre>
+                    </section>
+
+                    <section id="mutating-5">
+                        <h2>What does this get us?</h2>
+
+                        <ul>
+                            <li>Easy debugging</li>
+                            <li>Deterministic state changes</li>
+                            <li>State and action history</li>
+                            <li>"Time travel"</li>
+                        </ul>
+                    </section>
                 </section>
 
                 <section id="performance">
+                    <section id="performance-1">
+                        <h2>Isn't that slow?</h2>
+                    </section>
+
+                    <section id="performance-2">
+                        <p>Change detection becomes a non-issue</p>
+                        <p>Memoization through selectors</p>
+                    </section>
                 </section>
 
                 <section id="cons">
-                </section>
+                    <section id="cons-1">
+                        <h2>Cons</h2>
 
-                <section id="ecosystem">
-                </section>
-
-                <section id="examples">
+                        <ul>
+                            <li>Lots of boilerplate</li>
+                            <li>Most benefits require <i>entire</i> application to follow the pattern</li>
+                            <li>The "linux problem"</li>
+                            <li>Requires rethinking application architecture</li>
+                            <li>Not viable for everything (e.g. forms)</li>
+                        </ul>
+                    </section>
                 </section>
 
                 <section id="summary">
+                    <section id="summary-1">
+                        <h2>Summary</h2>
+
+                        <p>
+                            <i class="fas fa-thumbs-up"></i><br>
+                            <ul>
+                                <li>Deterministic state changes</li>
+                                <li>Easier debugging and inspection</li>
+                                <li>Caching and minimizing API calls</li>
+                                <li><i class="fas fa-arrow-right"></i> Better performance and responsiveness</li>
+                            </ul>
+                        </p>
+                    </section>
+
+                    <section id="summary-2">
+                        <h2>Summary</h2>
+                        <p>
+                            <i class="fas fa-thumbs-down"></i><br>
+                            <ul>
+                                <li>Lots of boilerplate</li>
+                                <li>More work for simple things</li>
+                            </ul>
+                        </p>
+                    </section>
+
+                    <section id="summary-3">
+                        <ul>
+                            <li>Even more performance improvements (Angular OnPush-Changedetection, ...)</li>
+                            <li>Sharing state with other developers, debugging together</li>
+                            <li>Hot reloading while developing</li>
+                            <li>Using state sharing in customer support</li>
+                        </ul>
+                    </section>
                 </section>
-			</div>
-		</div>
 
-		<script src="js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+                <section id="thanks">
+                    <section id="thanks-1">
+                        <h2>Questions?</h2>
+                    </section>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+                    <section id="thanks-1">
+                        <h2>Thank you!</h2>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
 </html>
