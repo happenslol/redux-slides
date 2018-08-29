@@ -19,3 +19,75 @@ pre.inline-code > code {
     margin: 0;
 }
 
+#webapps-3 .example {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#webapps-3 .example > div {
+    width: calc(50% - 30px);
+    border-radius: 5px;
+    border: 1px solid #FFF;
+    margin: 10px;
+    position: relative;
+}
+
+#webapps-3 .example .list {
+    overflow: hidden;
+}
+
+#webapps-3 .example .list .list-el {
+    margin: 10px;
+    width: 80%;
+    height: 16%;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#webapps-3 .example .list .list-el-pic {
+    height: 60%;
+    border: 1px solid #FFF;
+    width: 8%;
+    border-radius: 4px;
+    margin-left: 10px;
+    background-color: #FFF;
+    opacity: .4;
+}
+
+#webapps-3 .example .view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#webapps-3 .example .edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#webapps-3 .example .other {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-arrow-right {
+    position: absolute;
+    left: -25px;
+}
+
+.view-arrow-down {
+    position: absolute;
+    top: -30px;
+}
+
+.reload-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
