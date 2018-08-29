@@ -91,3 +91,47 @@ pre.inline-code > code {
     bottom: 10px;
     right: 10px;
 }
+
+#redux-3 .example {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#redux-3 .store-repr {
+    position: relative;
+    margin-top: 10px;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    height: 50%;
+    width: 100%;
+}
+
+.repr-arrow {
+    position: absolute;
+    top: -50px;
+}
+
+#redux-3 .todos {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#redux-3 .todo {
+    width: 60%;
+    border: 1px solid #FFF;
+    border-radius: 4px;
+    height: 20%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#redux-3 .todo i {
+    font-size: 30px;
+}

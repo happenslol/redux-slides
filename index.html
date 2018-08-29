@@ -123,17 +123,53 @@
                     </section>
 
                     <section id="redux-3">
-                        <h2>Redux</h2>
-                        example here
+                        <div class="example">
+                            <div class="store-obj">
+                                <pre><code class="javascript" data-trim>
+                                    {
+                                        todos: [
+                                            { done: true, task: "get out of bed" },
+                                            { done: true, task: "make some coffee" },
+                                            { done: false, task: "conquer the world" },
+                                            { done: false, task: "take a nap" }
+                                        ]
+                                    }
+                                </code></pre>
+                            </div>
+
+                            <div class="store-repr fragment">
+                                <i class="fas fa-arrow-down repr-arrow"></i>
+
+                                <div class="todos">
+                                    <div class="todo">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+
+                                    <div class="todo">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+
+                                    <div class="todo">
+                                        <i class="fas fa-times"></i>
+                                    </div>
+
+                                    <div class="todo">
+                                        <i class="fas fa-times"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </section>
 
                 <section id="mutating">
                     <section id="mutating-1">
                         <p>Who is allowed to modify state?</p>
-                        <br>
-                        <br>
-                        <p>No one!</p>
+                        <div class="fragment">
+                            <br>
+                            <br>
+                            <h2>No one!</h2>
+                        </div>
                     </section>
 
                     <section id="mutating-2">
@@ -181,10 +217,11 @@
                         <h2>What does this get us?</h2>
 
                         <ul>
-                            <li>Easy debugging</li>
-                            <li>Deterministic state changes</li>
-                            <li>State and action history</li>
-                            <li>"Time travel"</li>
+                            <li class="fragment">Easy debugging</li>
+                            <li class="fragment">Unidirectional data flow</li>
+                            <li class="fragment">Deterministic state changes</li>
+                            <li class="fragment">State and action history</li>
+                            <li class="fragment">"Time travel"</li>
                         </ul>
                     </section>
                 </section>
@@ -195,8 +232,9 @@
                     </section>
 
                     <section id="performance-2">
-                        <p>Change detection becomes a non-issue</p>
-                        <p>Memoization through selectors</p>
+                        <p>Memory isn't an issue</p>
+                        <p class="fragment">Memoization through selectors</p>
+                        <p class="fragment">Change detection becomes a non-issue!</p>
                     </section>
                 </section>
 
@@ -204,12 +242,12 @@
                     <section id="cons-1">
                         <h2>Cons</h2>
 
-                        <ul>
+                        <ul class="fragment">
                             <li>Lots of boilerplate</li>
-                            <li>Most benefits require <i>entire</i> application to follow the pattern</li>
-                            <li>The "linux problem"</li>
-                            <li>Requires rethinking application architecture</li>
-                            <li>Not viable for everything (e.g. forms)</li>
+                            <li class="fragment">Some benefits require <i>entire</i> application to follow the pattern</li>
+                            <li class="fragment">The "linux problem"</li>
+                            <li class="fragment">Requires rethinking application architecture</li>
+                            <li class="fragment">Not viable for everything (e.g. forms)</li>
                         </ul>
                     </section>
                 </section>
